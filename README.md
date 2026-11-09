@@ -4,3 +4,9 @@ The EwE API provides a powerful mechanism for orchestrating EwE execution flows,
 The EwE Bridge Plug-in was developed to make these internal plug-in points accessible to scripts that use the EwE API. At each supported plug-in point, the Bridge raises an event that can be handled by an external script. This allows scripted workflows to respond to EwE plug-in points during model execution and therefore combine the orchestration capabilities of the EwE API with the deeper integration offered by EwE's native plug-in architecture.
 
 The Bridge itself contains no modelling logic. Its sole purpose is to expose selected EwE plug-in points as script-accessible events, providing a lightweight connection between the EwE execution engine and externally scripted workflows.
+
+## Package output
+
+The package automatically places `Eii.Ecopath.BridgePlugin.dll` and its accompanying symbols and XML documentation (when copied) in `Plugins\BridgePlugin\` beneath the consuming project's build output. SDK-style publish output uses the same layout, including publishing with `--no-build`. PackageReference consumers also inherit these rules through transitive package references.
+
+Dependencies keep their normal output locations. The host must load the plugin from this subdirectory; installing the package does not configure assembly probing. The NuGet cache layout is unchanged.
